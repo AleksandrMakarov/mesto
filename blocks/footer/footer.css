@@ -1,0 +1,13 @@
+.footer {
+    padding: 67px 19px 60px;
+    margin: 0 auto 0;
+    max-width: 880px;
+}
+
+@media screen and (max-width: 700px) {
+    .footer {
+      padding-top: 36px;
+      grid-template-columns: repeat(auto-fill, 1fr);
+    }
+  }
+  
