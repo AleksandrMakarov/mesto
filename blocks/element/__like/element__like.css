@@ -5,6 +5,7 @@
     border: 0;
     cursor: pointer;
     background-color: white;
+    transition: .2s linear;
 }
 
 .element__like:hover {
