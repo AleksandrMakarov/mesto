@@ -3,3 +3,9 @@
     align-items: baseline;
     justify-content: center;
 }
+
+@media screen and (max-width: 600px) {
+    .profile__name-container {
+        margin: 26px 0px 0px 27px;
+    }
+}
