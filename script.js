@@ -18,41 +18,38 @@ function handleOverlayClick(event) {
 popup.addEventListener('click', handleOverlayClick);
 
 //находим строку в DOM с именем и профессией
-const nameInMarkup = document.querySelector('.profile__name').textContent;//Жак-Ив Кусто
-const professionInMarkup = document.querySelector('.profile__profession').textContent;// Исследователь океана
-
+let infoName = document.querySelector('.profile__name').textContent;
+let infoJob = document.querySelector('.profile__profession').textContent;
 //находим форму попАп
-const formElement = document.querySelector('.popup__form-container');
-//находим поле ввода имени и профессии в попАпе
-const nameInput = document.querySelector('.popup__input-name');
-const jobInput = document.querySelector('.popup__input-profession');
-//делаем значение в поле ввода формы равным значению в имени и профессии в разметке
-nameInput.value = nameInMarkup;
-jobInput.value = professionInMarkup;
-// Обработчик «отправки» формы, хотя пока
-// она никуда отправляться не будет
-function formSubmitHandler (evt) {
-    evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
-}
-//Смена контента на введённое значение в поля формы по клику на кнопку "Сохранить"
-const popupButtonSave = document.querySelector('.popup__button-save');
+const nameProfile = document.querySelector('.popup__input-name');
+const aboutProfile = document.querySelector('.popup__input-profession');
 
-popupButtonSave.addEventListener('click', function(event){
-    nameInput.value = nameInMarkup;
-    jobInput.value = professionInMarkup;
-    //запрещаем перезагрузку страницы
+nameProfile.value = infoName;
+aboutProfile.value = infoJob;
+
+//сохранение данных в полях по кнопке сохранить
+const popupEditButton = document.querySelector('.popup__button-save');
+
+popupEditButton.addEventListener('click', function(event) {
+    const userName = document.querySelector('.profile__name');
+    const userJob = document.querySelector('.profile__profession');
+    userName.textContent = nameProfile.value;
+    userJob.textContent = aboutProfile.value;
+
 	event.preventDefault();
-    //закрываем попап при событии click
-	popupButtonSave.addEventListener('click', togglePopup);
+	togglePopup(event);
 });
-// Прикрепляем обработчик к форме:
-// он будет следить за событием “submit” - «отправка»
-formElement.addEventListener('submit', formSubmitHandler);
 
-//лайк активен
+//пока не нужно
+/*
+//вкл- выкл лайка
 const elementLike = document.querySelector('.element__like');
-function toggleLike(event) {
+
+function toggleElementLike(event) {
     event.preventDefault();
-    elementLike.classList.toggle('element__like-on')
+    elementLike.classList.toggle('element__like_on');
 }
-elementLike.addEventListener('click', toggleLike);
+console.log(toggleElementLike)
+elementLike.addEventListener('click', toggleElementLike);
+*/
+

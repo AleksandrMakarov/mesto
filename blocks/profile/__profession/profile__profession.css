@@ -1,24 +1,20 @@
 .profile__profession {
-    max-width: 336px;
-    margin: 11px 0 0 0;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
-    color: #FFFFFF;
+  max-width: 336px;
+  margin: 11px 0 0 0;
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFFFFF;
 }
 
 @media screen and (max-width: 700px) {
-    .profile__profession {
-        text-align: center;
-    }
+  .profile__profession {
+    text-align: center;
+    font-size: 14px;
+    line-height: 17px;
+    margin: 6px 0 0 0;
   }
+}
 
-  @media screen and (max-width: 600px) {
-    .profile__profession {
-        font-size: 14px;
-        line-height: 17px;
-        margin: 6px 0 0 0;
-    }
-  }
