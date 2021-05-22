@@ -7,8 +7,8 @@
 
 @media screen and (max-width: 700px) {
   .profile {
-    grid-template-columns: 100%;
-    padding: 42px 19px 36px;
-    display: inline;
+    grid-template-columns: repeat(1, 1fr);
+    padding: 42px 0 0;
+    margin: auto;
   }
 }

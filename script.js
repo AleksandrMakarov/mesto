@@ -1,7 +1,7 @@
 //скрипт вызова popup по нажатию кнопки
-const openPupupButton = document.querySelector('.profile__edit-button');
-const popup = document.querySelector('.popup');
-const closePopupButton = document.querySelector('.popup__close-button');
+let openPupupButton = document.querySelector('.profile__edit-button');
+let popup = document.querySelector('.popup');
+let closePopupButton = document.querySelector('.popup__close-button');
 
 function togglePopup(event) {
     event.preventDefault();
@@ -17,39 +17,28 @@ function handleOverlayClick(event) {
 }
 popup.addEventListener('click', handleOverlayClick);
 
+
+//находим поле формы попАп
+let formElement = document.querySelector('.popup__form-container');
+
 //находим строку в DOM с именем и профессией
 let infoName = document.querySelector('.profile__name').textContent;
 let infoJob = document.querySelector('.profile__profession').textContent;
-//находим форму попАп
-const nameProfile = document.querySelector('.popup__input-name');
-const aboutProfile = document.querySelector('.popup__input-profession');
+//находим поля ввода попАп
+let nameProfile = document.querySelector('.popup__input-name');
+let aboutProfile = document.querySelector('.popup__input-profession');
 
 nameProfile.value = infoName;
 aboutProfile.value = infoJob;
 
-//сохранение данных в полях по кнопке сохранить
-const popupEditButton = document.querySelector('.popup__button-save');
+function formSubmitHandler (event) {
+  let userName = document.querySelector('.profile__name');
+  let userJob = document.querySelector('.profile__profession');
+  userName.textContent = nameProfile.value;
+  userJob.textContent = aboutProfile.value;
 
-popupEditButton.addEventListener('click', function(event) {
-    const userName = document.querySelector('.profile__name');
-    const userJob = document.querySelector('.profile__profession');
-    userName.textContent = nameProfile.value;
-    userJob.textContent = aboutProfile.value;
-
-	event.preventDefault();
+	event.preventDefault();// Эта строчка отменяет стандартную отправку формы.
 	togglePopup(event);
-});
-
-//пока не нужно
-/*
-//вкл- выкл лайка
-const elementLike = document.querySelector('.element__like');
-
-function toggleElementLike(event) {
-    event.preventDefault();
-    elementLike.classList.toggle('element__like_on');
-}
-console.log(toggleElementLike)
-elementLike.addEventListener('click', toggleElementLike);
-*/
-
+};
+//обработчик отправки формы
+formElement.addEventListener('submit', formSubmitHandler);
